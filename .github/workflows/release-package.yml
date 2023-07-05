@@ -26,10 +26,8 @@ jobs:
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
-          
+          withcache-dependency-path: ./sample_packages/npm/package-lock.json
       - run: npm ci
-        working-directory: sample_packages/npm/
       - run: npm publish
-        working-directory: sample_packages/npm/
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
